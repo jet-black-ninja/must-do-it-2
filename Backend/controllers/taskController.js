@@ -55,14 +55,6 @@ const deleteTask = asyncHandler(async (req,res) =>{
     res
     .status(200)
     .json({id:req.params.id});
-    // try{
-    //     await Task.findByIdAndDeleteOne(req.params.id);
-    //     res
-    //     .status(200)
-    //    .json({ message:`Task deleted with id ${req.params.id}`});
-    // }catch{
-    //     throw new Error('Task not found')
-    // }
 })
 
 module.exports = {
