@@ -13,7 +13,7 @@ const getUser = asyncHandler(async (res, req) => {
 // @desc Register new user
 // Post /api/users
 // Public
-const registerUser = asyncHandler(async (res, req) => {
+const registerUser = asyncHandler(async (req, res) => {
     const {name, email, password} = req.body;
     if(!name || !email || !password){
         res.status(400)
@@ -52,7 +52,7 @@ const registerUser = asyncHandler(async (res, req) => {
 //@access public
 const loginUser = asyncHandler(async (req,res) => {
     const {email, password}= req.body;
-    //const for user email
+    //check for user email
     const user = await User.findOne({email})
     if(user && (await bcrypt.compare(password, user.password))){
         res.json({
@@ -67,10 +67,16 @@ const loginUser = asyncHandler(async (req,res) => {
     }
 })
 //@Desc Get user data
-// @route GET /api/users/me
+// @route GET /api/user/me
 // @access Private
 const getMe = asyncHandler(async (req, res)=>{
-    res.status(300).json(req.user)
+    const {_id, name , email} = await User.findBy(req.user.id)
+    
+    res.status(200).json({
+        id:_id,
+        name,
+        email,
+    })
 })
 
 const generateToken = (id) => {
