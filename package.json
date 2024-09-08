@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "start": "node backend/server.js",
-    "server": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "client": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "sachin",
   "license": "MIT",
