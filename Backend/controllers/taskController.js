@@ -36,14 +36,14 @@ const updateTask = asyncHandler(async (req,res) => {
         res.status(400)
         throw new Error('Task not found')
     }
-    const user = await User.findById(req.user.id);
+    
     //check for user
-    if(!user){
+    if(!req.user){
         res.status(401)
         throw new Error('User Not found');
     }
     //make sure the login in user matched task user
-    if(task.user.toString() !== user.id){
+    if(task.user.toString() !== req.user.id){
         res.status(401)
         throw new Error('Not authorized, you can only update your own tasks')
     }
@@ -62,14 +62,14 @@ const deleteTask = asyncHandler(async (req,res) =>{
         res.status(400)
         throw new Error('Task not found')
     }
-    const user = await User.findById(req.user.id);
+    
     //check for user
-    if(!user){
+    if(!req.user){
         res.status(401)
         throw new Error('User Not found');
     }
     //make sure the login in user matched task user
-    if(task.user.toString() !== user.id){
+    if(task.user.toString() !== req.user.id){
         res.status(401)
         throw new Error('Not authorized, you can only update your own tasks')
     }
