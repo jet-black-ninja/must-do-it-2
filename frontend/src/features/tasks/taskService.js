@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/tasks/'
+const API_URL = 'https://must-do-it-fs.vercel.app/api/tasks/'
 
 // Create new task
 const createTask = async (taskData, token) => {
