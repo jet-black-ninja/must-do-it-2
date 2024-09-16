@@ -14,7 +14,7 @@ export const createTask = createAsyncThunk(
   'tasks/create',
   async (taskData, thunkAPI) => {
     try {
-      const token = thunkAPI.getState().auth.user.token
+      const token = thunkAPI.getState().auth.user.token;
       return await taskService.createTask(taskData, token)
     } catch (error) {
       const message =

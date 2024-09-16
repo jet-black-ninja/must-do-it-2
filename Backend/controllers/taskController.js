@@ -5,22 +5,23 @@ const User = require("../models/userModel");
 //  @route GET /api/tasks
 //  @access Private
 const getTasks = asyncHandler(async (req, res) => {
-    const task = await Task.find({user:req.user.id});
+    const tasks = await Task.find({user: req.user.id});
     res
     .status(200)
-    .json(task)
+    .json(tasks)
 })
 //  @desc Create tasks
 //  @route POST /api/tasks
 //  @access Private
 const setTask = asyncHandler(async (req,res) =>{
+    console.log(req.user);
     if(!req.body.text){
         res.status(400)
         throw new Error('please add a text field')
     }
     const task = await Task.create({
         text: req.body.text,
-        user:res.user.id,
+        user: req.user.id,
     })
     res
     .status(200)

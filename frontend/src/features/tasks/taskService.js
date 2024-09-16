@@ -9,10 +9,10 @@ const createTask = async (taskData, token) => {
       Authorization: `Bearer ${token}`,
     },
   }
-
+  
   const response = await axios.post(API_URL, taskData, config)
 
-  return response.data
+  return response.data;
 }
 
 // Get user tasks
@@ -23,9 +23,8 @@ const getTasks = async (token) => {
     },
   }
 
-  const response = await axios.get(API_URL, config)
-
-  return response.data
+  const response = await axios.get(API_URL, config);
+  return response.data;
 }
 
 // Delete user task

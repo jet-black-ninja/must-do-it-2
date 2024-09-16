@@ -33,9 +33,9 @@ function Dashboard() {
       <section className="content">
         {tasks.length> 0? (
           <div className="goals">
-            {tasks.map((task)=>{
-              <TaskItem key={task._id} task={task}/>
-            })}
+            {tasks.map((task) => (
+        <TaskItem key={task._id} task={task} /> // Add a return here
+      ))}
           </div>
         ):(
           <h3>You Do not have any pending Tasks</h3>
