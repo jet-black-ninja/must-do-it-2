@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended:false}));
 //cors setup
 app.use(cors({
-    origin:['http://localhost:5173'],
+    origin:['http://localhost:5173',"https://must-do-it-2-tupy.vercel.app/"],
     credentials:true,
 }))
 
