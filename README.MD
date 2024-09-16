@@ -69,7 +69,7 @@ A full-stack To-Do List application with user registration, login, and task mana
 
 ## Live demo
 
-Check out the live version of the app:[Live Demo](must-do-it-2-tupy.vercel.app/)
+Check out the live version of the app:[Live Demo](http://must-do-it-2-tupy.vercel.app/)
 
 ## License
 
